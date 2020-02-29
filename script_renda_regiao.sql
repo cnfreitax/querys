@@ -561,6 +561,9 @@ where nome_municipio = 'São Paulo';
 select nome_municipio, sum(class_02) / sum(total_zona) * 100 as porcentagem from renda_regiao 
 where nome_municipio = 'São Paulo';
 
+select nome_municipio, sum(class_01) / sum(total_zona) * 100 as porcentagem from renda_regiao 
+group by nome_municipio order by porcentagem;
+
 select* from renda_regiao
 
 
