@@ -564,7 +564,14 @@ where nome_municipio = 'São Paulo';
 select nome_municipio, sum(class_01) / sum(total_zona) * 100 as porcentagem from renda_regiao 
 group by nome_municipio order by porcentagem;
 
-select* from renda_regiao
+select nome_municipio as municipio, sum(class_01) / sum(total_zona) * 100 as 'até R$1.908',
+sum(class_02) / sum(total_zona) * 100 as 'R$1.908 até R$3.816',
+sum(class_03) / sum(total_zona) * 100 as 'R$3816 até R$7.632',
+sum(class_04) / sum(total_zona) * 100 as 'R$3.816 até R$11.448',
+sum(class_05) / sum(total_zona) * 100 as 'mais de 11.448' 
+from renda_regiao
+group by municipio;
 
+select * from renda_regiao
 
 
